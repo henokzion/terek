@@ -4,9 +4,13 @@
 <div>
     <% @articles.each do |article| %>
         <h1><%= article.title %></h1>
-        <p><%= article.description %></p>
-        <%= link_to 'Edit', edit_article_path(article) %>
+        <p><%= truncate(article.description, length: 100) %></p>
+        <%= link_to edit_article_path(article) do%>
+            <i class="glyphicon glyphicon-edit"></i>
+        <% end %>
         <%= link_to 'show', article_path(article) %>
-        <%= link_to 'Delete', article_path(article), method: :delete, data: { confirm: "are you sure"} %>
+        <%= link_to article_path(article), method: :delete, data: { confirm: "are you sure"} do %>
+            <i class="glyphicon glyphicon-trash"></i>
+        <% end %>
     <% end %>
 </div>

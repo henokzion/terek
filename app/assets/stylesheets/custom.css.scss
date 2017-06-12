@@ -1,0 +1,45 @@
+$navbar-default-bg: rgb(244,241,234);
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body{
+        background-color: rgba(244,241,234,0.5);
+}
+
+.navbar-brand{
+    font-size: 1.7em;
+    letter-spacing: -1px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.navbar {
+    border-radius: 0px;
+}
+.home-cover{
+    height: 600px;
+    z-index: -2;
+}
+.home{
+    background-image: image-url('bg.jpg');
+    filter: url(#blur-effect-1);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    z-index: -1;
+}
+.jumbotron{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    background: rgba(255,255,255,0.7);
+    border-radius: 10px;
+}
+footer{
+    padding: 30px;
+}

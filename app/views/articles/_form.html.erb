@@ -1,23 +1,17 @@
-<% if @article.errors.any? %>
-<ul>
-    <% @article.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-    <% end %>
-</ul>
-<% end %>
+<%= render "shared/errors", obj: @article %>
 
 <%= form_for @article do |f| %>
-<p>
+<div class="form-group">
     <%= f.label :title %> <br>
-    <%= f.text_field :title %>
-</p>
+    <%= f.text_field :title, class: "form-control" %>
+</div>
 
-<p>
+<div class: "form-group">
     <%= f.label :description %> <br>
-    <%= f.text_area :description %>
-</p>
-<p>
-    <%= f.submit %>
-</p>
+    <%= f.text_area :description , class: "form-control", rows: 10%>
+</div>
+<div class="form-group">
+    <%= f.submit class: "btn btn-primary" %>
+</div>
 <%= link_to "Back to articles", articles_path %>
 <% end %>
