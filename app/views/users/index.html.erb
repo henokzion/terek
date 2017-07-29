@@ -1,0 +1,15 @@
+<h1>Users</h1>
+
+<% @users.each do |user| %>
+    <div class="media">
+        <div class="media-left">
+            <%= link_to  gravatar_for(user), user_path(user) %>
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading"><%= user.username %></h4>
+            <%= pluralize(user.articles.count, "article") if user.articles %>
+        </div>
+    </div>
+<% end %>
+
+<%= will_paginate %>

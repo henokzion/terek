@@ -3,8 +3,18 @@
     <%= @article.title %>
 </h2>
 <p>
-
-<%= link_to "Edit article", edit_article_path %>
-     <%= simple_format(@article.description) %>
+<% if logged_in? && current_user == @article.user %>
+    <%= link_to "Edit article", edit_article_path %>
+<% end %>     
+<%= simple_format(@article.description) %>
 <%= link_to "Back to articles", articles_path %>
 </p>
+<div class="media">
+    <div class="media-left">
+        <%= link_to  gravatar_for(@article.user), user_path(@article.user) %>
+    </div>
+    <div class="media-body">
+        <h4 class="media-heading"><%= @article.user.username %></h4>
+        <%= pluralize(@article.user.articles.count, "article") if @article.user.articles %>
+    </div>
+</div>

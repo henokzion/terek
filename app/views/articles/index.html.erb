@@ -1,18 +1,10 @@
 <h1>Listing all articles</h1>
+<% if logged_in? %>
 <%= link_to "create new article", new_article_path %>
-
+<% end %>
 <div>
-    <% @articles.each do |article| %>
-        <h1><%= article.title %></h1>
-        <p><%= truncate(article.description, length: 100) %></p>
-        <small> Created By <%= article.user.username %> </small>
-        <em><%= time_ago_in_words(article.created_at) %></em>
-        <%= link_to edit_article_path(article) do%>
-            <i class="glyphicon glyphicon-edit"></i>
-        <% end %>
-        <%= link_to 'show', article_path(article) %>
-        <%= link_to article_path(article), method: :delete, data: { confirm: "are you sure"} do %>
-            <i class="glyphicon glyphicon-trash"></i>
-        <% end %>
-    <% end %>
+    <%= render  "article" , obj:@articles %>
+</div>
+<div class="center">
+    <%= will_paginate %>
 </div>
