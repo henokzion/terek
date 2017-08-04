@@ -3,6 +3,10 @@ $navbar-default-bg: rgb(244,241,234);
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+html, body {
+    height: 100%;
+}
+
 body{
         background-color: rgba(244,241,234,0.5);
 }
@@ -17,10 +21,11 @@ body{
 .navbar {
     border-radius: 0px;
 }
-.home-cover{
+
+.home-cover { 
     height: 600px;
-    z-index: -2;
 }
+
 .home{
     background-image: image-url('bg.jpg');
     filter: url(#blur-effect-1);

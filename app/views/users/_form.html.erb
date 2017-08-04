@@ -1,5 +1,5 @@
 <%= render "shared/errors", obj: @user %>
-<h3>Edit your acount</h3>
+
 <%= form_for @user do |f| %>
 <div class="form-group">
     <%= f.label :username %> <br>
@@ -14,8 +14,8 @@
     <%= f.label :password %> <br>
     <%= f.password_field :password , class: "form-control"%>
 </div>
+<br>
 <div class="form-group">
     <%= f.submit(@user.new_record? ? "sign up" :  "Edit" , class: "btn btn-primary" )%>
 </div>
-<%= link_to "Back to articles", articles_path %>
 <% end %>
